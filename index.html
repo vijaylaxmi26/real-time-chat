@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>My website</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <button id="btn" class="btn-class">click here</button>
+     <div id="model" class="model-class">
+     <section class="chat">
+         <div class="frame">
+             <div class="head">
+                <img src="/logo.png" alt="img not avalaible">
+                <h2>Chat</h2>
+                <span class="close">&times;</span>
+             </div>
+             <div class="chat_box">
+              
+             </div>
+             <div class="input_filled">
+                <textarea id="textarea" cols="30" placeholder="Write a message..." ></textarea>
+                <button type="submit" id="send-button" onclick="myFunction()">Send</button>
+             </div>
+         </div>
+     </section>
+    </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+
+// Get DOM Elements
+const modal = document.querySelector('#model');
+const modalBtn = document.querySelector('#btn');
+const closeBtn = document.querySelector('.close');
+
+// Events
+modalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+
+// Open
+function openModal() {
+  modal.style.display = 'block';
+  EnterName();
+}
+
+// Close
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const socket = io();
+
+let name;
+let textarea = document.querySelector('#textarea');
+let mesgArea = document.querySelector('.chat_box');
+
+function EnterName(){
+    do{
+         name = prompt('enter the name:');
+     }while(!name)
+}
+
+function myFunction() {
+  var x = document.getElementById("textarea").value;
+   sendMessage(x);
+}
+
+textarea.addEventListener('keyup', (e)=>{
+        if(e.key === 'Enter'){
+            sendMessage(e.target.value);
+        }
+})
+
+function sendMessage(msg){
+    let mas ={
+        user:name,
+        message : msg.trim()
+    }
+     
+    appendMessage(mas, 'outgoing');
+    textarea.value='';
+    scrollToBottom();
+
+    // send to server
+    socket.emit('message', mas);
+}
+
+function appendMessage(msg, type){
+       let mainDiv = document.createElement('div')
+       let className = type
+       mainDiv.classList.add(className)
+
+       let markup=`
+         <h1>${msg.user}</h1>
+         <p>${msg.message}</p>
+       `
+      mainDiv.innerHTML = markup;
+
+      mesgArea.appendChild(mainDiv);
+
+
+}
+
+// Recieve message
+
+socket.on('message', (msg) => {
+    appendMessage(msg,'incoming');
+    scrollToBottom();
+})
+
+function scrollToBottom(){
+    mesgArea.scrollTop = mesgArea.scrollHeight;
+}
+    </script>
+</body>
+</html>

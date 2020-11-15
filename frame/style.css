@@ -1,0 +1,120 @@
+.btn-class{
+	background: #428bca;
+	padding: 1em 2em;
+	color: #fff;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+}
+  
+.btn-class:hover {
+	background: #40596e;
+	box-shadow: 3px 3px 8px #40596e;
+}
+
+.model-class{
+	display:none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.close {
+	color: rgb(57, 163, 212);
+	float: right;
+	font-size: 30px;
+	margin-right: 5px;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+
+
+
+
+
+
+
+
+
+
+.chat{
+    width: 800px;
+    height: 450px;
+	margin-top: 5%;
+	margin-left: 25%;
+	background-color: #fff;
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.chat_box{
+    height: 375px;
+	background-color: #e3e0d8;
+	overflow-y:auto;
+	margin-top: 3px;
+
+}
+.head h2{
+	display: inline;
+}
+
+.head img
+{
+	width: 30px;
+	height: 30px;
+}
+
+.input_filled
+{
+	display: flex;
+}
+.input_filled button{
+	width: 10%;
+	background-color: #1eb2e3;
+	border: none;
+}
+
+.input_filled textarea{
+	width: 90%;
+}
+
+.incoming{
+       margin-left: 5px;
+}
+.incoming p{
+	margin-top: -5px;
+	background-color: #b0d9eb;
+	max-width: 150px;
+	padding: 5px;
+	border-radius: 5px;
+
+}
+.incoming h1{
+	font-size:13px;
+}
+
+.outgoing{
+	text-align: right;
+	margin-right: 5px;
+}
+.outgoing p{
+	margin-top: -5px;
+	background-color: #b5c0c4;
+	margin-left: 600px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.outgoing h1{
+	font-size:13px;
+}
