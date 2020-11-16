@@ -12,7 +12,14 @@ I build it with the help of socket.io library. on the front of the screen,
 there is a button clicking on that it will ask your user name in a prompt box. 
 after it the chat box will pop up and u can chat with all the device who is connected to the server. 
 socket.io broadcast the message to all the user.
-	
+
+## Looks
+
+![](img/1.png)
+![](img/2.png)
+![](img/3.png)
+
+
 ## Technologies
 
  To create this project we need basic knowledge of Node.js, express and socket.io;
@@ -39,3 +46,5 @@ $ npm install nodemon
 $ npm install socket.io
 
 ```
+
+
